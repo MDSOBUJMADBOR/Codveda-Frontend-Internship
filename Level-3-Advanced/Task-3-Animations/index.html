@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaPulse 3D - Advanced GSAP ScrollTrigger Animations & Interactive Dynamics.">
+  <meta name="author" content="Md. Sobuj Madbor">
+  <title>NovaPulse — Advanced GSAP Interactive Animations</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="progressBar"></div>
+
+  <!-- Custom Magnetic Cursor Follower -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <span class="brand-badge">GSAP 3</span>
+        <span class="brand-text">Nova<strong>Pulse</strong></span>
+      </div>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link magnetic">Intro</a>
+        <a href="#timeline" class="nav-link magnetic">Timeline</a>
+        <a href="#cards" class="nav-link magnetic">Tilt Cards</a>
+        <a href="#features" class="nav-link magnetic">Sequences</a>
+      </div>
+      <a href="#contact" class="btn btn-primary magnetic" id="ctaBtn">Experience Motion</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-particles" id="particlesContainer"></div>
+      <div class="container hero-content">
+        <div class="hero-tag gsap-hero">
+          <span class="pulse-dot"></span> Next-Level Kinetic Experience
+        </div>
+
+        <h1 class="hero-title gsap-hero">
+          Crafting Smooth <br>
+          <span class="gradient-text text-split">Cinematic Web Motion</span>
+        </h1>
+
+        <p class="hero-desc gsap-hero">
+          Harnessing the GreenSock Animation Platform (GSAP 3) with ScrollTrigger for physics-based timelines, dynamic parallax staging, and hardware-accelerated 60 FPS performance.
+        </p>
+
+        <div class="hero-actions gsap-hero">
+          <a href="#timeline" class="btn btn-primary magnetic">
+            <span>Explore Scroll Sequence</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg>
+          </a>
+          <button class="btn btn-outline magnetic" id="replayHeroBtn">
+            <span>Replay Intro</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          </button>
+        </div>
+
+        <!-- Floating 3D Geometric Stage -->
+        <div class="hero-floating-stage gsap-hero">
+          <div class="floating-orb orb-1"></div>
+          <div class="floating-orb orb-2"></div>
+          <div class="floating-cube" id="tiltCube">
+            <div class="cube-inner">
+              <span class="cube-code">&lt;GSAP /&gt;</span>
+              <span class="cube-caption">60 FPS Hardware Accelerated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ScrollTrigger Pinned Timeline Section -->
+    <section class="pinned-section" id="timeline">
+      <div class="container">
+        <div class="section-heading text-center gsap-fade">
+          <span class="section-tag">SCROLLTRIGGER TIMELINE</span>
+          <h2 class="section-title">The Evolution of Motion Staging</h2>
+          <p class="section-desc">Scroll slowly to witness coordinated timeline morphing pinned dynamically to viewport scroll progress.</p>
+        </div>
+
+        <div class="timeline-container" id="timelineTrack">
+          <!-- Step 1 -->
+          <div class="timeline-step step-1">
+            <div class="step-badge">Phase 01</div>
+            <h3>Micro-Interactions</h3>
+            <p>Immediate tactile response to user inputs with spring-physics easing curves.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step step-2">
+            <div class="step-badge">Phase 02</div>
+            <h3>Coordinated Choreography</h3>
+            <p>Complex multi-element sequences synced to user viewport navigation.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step step-3">
+            <div class="step-badge">Phase 03</div>
+            <h3>Spatial Depth &amp; Parallax</h3>
+            <p>Layered multi-plane dimensional depth utilizing CSS 3D transforms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D Interactive Tilt Cards Section -->
+    <section class="cards-section" id="cards">
+      <div class="container">
+        <div class="section-heading text-center gsap-fade">
+          <span class="section-tag">INTERACTIVE PERSPECTIVE</span>
+          <h2 class="section-title">Physics-Based 3D Hover Depth</h2>
+          <p class="section-desc">Hover over any card below to experience real-time perspective tilt with dynamic specular light glare.</p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Card 1 -->
+          <div class="tilt-card" data-tilt>
+            <div class="card-glare"></div>
+            <div class="card-content">
+              <div class="card-icon icon-cyan">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              </div>
+              <h3>Timeline Synchrony</h3>
+              <p>Chain multiple tween operations into deterministic timelines with precise sub-millisecond delays.</p>
+              <span class="card-footer-tag">gsap.timeline()</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="tilt-card" data-tilt>
+            <div class="card-glare"></div>
+            <div class="card-content">
+              <div class="card-icon icon-purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <h3>ScrollTrigger Pinning</h3>
+              <p>Pin elements to the screen while scrubbing animations directly proportional to the scrollbar.</p>
+              <span class="card-footer-tag">ScrollTrigger.create()</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="tilt-card" data-tilt>
+            <div class="card-glare"></div>
+            <div class="card-content">
+              <div class="card-icon icon-pink">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <h3>Spring &amp; Elasticity</h3>
+              <p>Natural physics eases: `power4.out`, `elastic.out(1, 0.3)`, and customizable bezier vectors.</p>
+              <span class="card-footer-tag">CustomEase.create()</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessibility Banner -->
+    <section class="a11y-section" id="features">
+      <div class="container">
+        <div class="a11y-card gsap-fade">
+          <div class="a11y-info">
+            <span class="a11y-badge">Accessibility by Default</span>
+            <h3>prefers-reduced-motion Compliant</h3>
+            <p>Animations automatically adjust or disable for users with vestibular disorders or motion sensitivity settings enabled in their OS.</p>
+          </div>
+          <div class="a11y-action">
+            <button class="btn btn-outline" id="toggleMotionBtn">Simulate Reduced Motion</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section" id="contact">
+      <div class="container text-center">
+        <h2 class="cta-title">Elevate Your Web Experience</h2>
+        <p class="cta-sub">Crafted for Codveda Technologies Front-End Internship — Level 3 Task 3.</p>
+        <a href="#hero" class="btn btn-primary btn-large magnetic">
+          <span>Back to Top</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 NovaPulse Animation Engine &bull; Developed by <strong>Md. Sobuj Madbor</strong></p>
+      <p class="sub">Codveda Technologies Front-End Development Internship &bull; Level 3 Task 3</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
