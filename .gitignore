@@ -20,3 +20,6 @@ Desktop.ini
 *.sln
 *.sw?
 
+
+# Local Netlify folder
+.netlify
