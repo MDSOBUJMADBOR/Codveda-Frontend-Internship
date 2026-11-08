@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Md. Sobuj Madbor - Front-End Development Internship Showcase at Codveda Technologies.">
+  <meta name="author" content="Md. Sobuj Madbor">
+  <title>Codveda Internship Portfolio — Md. Sobuj Madbor</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: rgba(18, 24, 38, 0.75);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(99, 102, 241, 0.4);
+
+      --text-main: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      --accent-primary: #6366f1;
+      --accent-secondary: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+
+      --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-card: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(140px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    .glow-1 { top: -120px; left: 15%; width: 500px; height: 500px; background: #6366f1; }
+    .glow-2 { bottom: -120px; right: 15%; width: 500px; height: 500px; background: #06b6d4; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Top Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(7, 9, 14, 0.85);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .brand-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .brand-text strong {
+      color: var(--accent-secondary);
+    }
+
+    .badge-status {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 6px var(--accent-emerald);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      text-align: center;
+      padding: 60px 0 50px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-secondary);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 30px;
+    }
+
+    .author-meta-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      padding: 8px 24px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 40px;
+    }
+
+    .author-meta-box strong {
+      color: var(--text-main);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(99, 102, 241, 0.6);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      background: rgba(99, 102, 241, 0.08);
+    }
+
+    /* Projects Grid by Level */
+    .levels-container {
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      margin-bottom: 80px;
+    }
+
+    .level-block {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+    }
+
+    .level-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 16px;
+    }
+
+    .level-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-secondary);
+    }
+
+    .level-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .tasks-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      box-shadow: var(--shadow-card);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+    }
+
+    .project-top {
+      margin-bottom: 20px;
+    }
+
+    .task-number {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--accent-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .tech-pill-list {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .tech-pill {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-color);
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .btn-demo {
+      background: var(--accent-gradient);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 8px 18px;
+    }
+
+    .btn-demo:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-code {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      padding: 8px 16px;
+    }
+
+    .btn-code:hover {
+      color: var(--text-main);
+      border-color: var(--accent-secondary);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0 30px;
+      margin-top: auto;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .site-footer .sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title { font-size: 3.6rem; }
+      .tasks-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Top Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-content">
+      <div class="brand">
+        <div class="brand-logo-icon">C</div>
+        <span class="brand-text">Codveda<strong>Portfolio</strong></span>
+      </div>
+
+      <div class="badge-status">
+        <span class="status-dot"></span>
+        <span>6/6 Tasks Completed</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-pill">
+        <span>Codveda Technologies Internship Showcase</span>
+      </div>
+
+      <h1 class="hero-title">
+        Front-End Engineering <br>
+        <span class="gradient-text">Production Deliverables</span>
+      </h1>
+
+      <p class="hero-desc">
+        Interactive portfolio showcasing 6 modern front-end web projects built for Codveda Technologies across core HTML5/CSS3 fundamentals, React 18 SPA architecture, REST APIs, Lighthouse 99 optimization, and GSAP 3 motion.
+      </p>
+
+      <div class="author-meta-box">
+        <span>Developer: <strong>Md. Sobuj Madbor</strong></span>
+        <span>&bull;</span>
+        <span>Domain: <strong>Front End Development</strong></span>
+        <span>&bull;</span>
+        <span>Submission: <strong>Nov 22, 2026</strong></span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="https://github.com/MDSOBUJMADBOR/Codveda-Frontend-Internship" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <span>View GitHub Repository</span>
+        </a>
+        <a href="https://forms.gle/Khvs4xArYJtL5pbw7" target="_blank" rel="noopener" class="btn btn-outline">
+          <span>Official Task Submission Form</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Levels & Project Hub -->
+    <div class="levels-container">
+
+      <!-- LEVEL 1 -->
+      <section class="level-block">
+        <div class="level-header">
+          <div>
+            <span class="level-tag">LEVEL 1 &bull; BASIC DOMAIN</span>
+            <h2 class="level-title">Core Web Fundamentals</h2>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">2 Tasks Completed</span>
+        </div>
+
+        <div class="tasks-grid">
+          <!-- Task 1 -->
+          <article class="project-card">
+            <div class="project-top">
+              <span class="task-number">Task 1</span>
+              <h3 class="project-title">NovaFlow — Responsive Landing Page</h3>
+              <p class="project-desc">
+                High-converting SaaS product landing page built with semantic HTML5 and CSS Grid/Flexbox. Features dark/light theme switcher, animated metrics counter, and mobile menu.
+              </p>
+              <div class="tech-pill-list">
+                <span class="tech-pill">Semantic HTML5</span>
+                <span class="tech-pill">CSS Flexbox &amp; Grid</span>
+                <span class="tech-pill">Theme Toggle</span>
+                <span class="tech-pill">Vanilla JS</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="./Level-1-Basic/Task-1-Landing-Page/index.html" class="btn btn-demo">
+                <span>Launch Live Demo &rarr;</span>
+              </a>
+              <a href="https://github.com/MDSOBUJMADBOR/Codveda-Frontend-Internship/tree/main/Level-1-Basic/Task-1-Landing-Page" target="_blank" class="btn btn-code">Source Code</a>
+            </div>
+          </article>
+
+          <!-- Task 2 -->
+          <article class="project-card">
+            <div class="project-top">
+              <span class="task-number">Task 2</span>
+              <h3 class="project-title">Codveda ID — Interactive Form Validation</h3>
+              <p class="project-desc">
+                Interactive registration form with real-time regex input validation, 4-tier visual password strength bar, focus/blur glowing cues, and animated modal confirmation summary.
+              </p>
+              <div class="tech-pill-list">
+                <span class="tech-pill">Real-Time Regex</span>
+                <span class="tech-pill">Password Entropy</span>
+                <span class="tech-pill">Glassmorphism</span>
+                <span class="tech-pill">Modal UX</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="./Level-1-Basic/Task-2-Interactive-Form/index.html" class="btn btn-demo">
+                <span>Launch Live Demo &rarr;</span>
+              </a>
+              <a href="https://github.com/MDSOBUJMADBOR/Codveda-Frontend-Internship/tree/main/Level-1-Basic/Task-2-Interactive-Form" target="_blank" class="btn btn-code">Source Code</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- LEVEL 2 -->
+      <section class="level-block">
+        <div class="level-header">
+          <div>
+            <span class="level-tag">LEVEL 2 &bull; INTERMEDIATE DOMAIN</span>
+            <h2 class="level-title">React SPAs &amp; Dynamic REST APIs</h2>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">2 Tasks Completed</span>
+        </div>
+
+        <div class="tasks-grid">
+          <!-- Task 1 -->
+          <article class="project-card">
+            <div class="project-top">
+              <span class="task-number">Task 1</span>
+              <h3 class="project-title">NovaSphere — React 18 Single Page App</h3>
+              <p class="project-desc">
+                Enterprise multi-route application built with React 18, React Router v6, and centralized Context API. Features zero-reload navigation and cross-page state synchronization.
+              </p>
+              <div class="tech-pill-list">
+                <span class="tech-pill">React 18</span>
+                <span class="tech-pill">React Router v6</span>
+                <span class="tech-pill">Context API</span>
+                <span class="tech-pill">Vite 6</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/MDSOBUJMADBOR/Codveda-Frontend-Internship/tree/main/Level-2-Intermediate/Task-1-React-SPA" target="_blank" class="btn btn-demo">
+                <span>Explore SPA Architecture &rarr;</span>
+              </a>
+              <a href="https://github.com/MDSOBUJMADBOR/Codveda-Frontend-Internship/tree/main/Level-2-Intermediate/Task-1-React-SPA" target="_blank" class="btn btn-code">Source Code</a>
+            </div>
+          </article>
+
+          <!-- Task 2 -->
+          <article class="project-card">
+            <div class="project-top">
+              <span class="task-number">Task 2</span>
+              <h3 class="project-title">DevPulse — GitHub REST API Explorer</h3>
+              <p class="project-desc">
+                Live asynchronous developer dashboard integrating official GitHub REST API v3. Features 500ms debounced queries, dynamic repository language filters, and skeleton loaders.
+              </p>
+              <div class="tech-pill-list">
+                <span class="tech-pill">GitHub REST API</span>
+                <span class="tech-pill">500ms Debouncing</span>
+                <span class="tech-pill">Dynamic Filters</span>
+                <span class="tech-pill">Async / Await</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="./Level-2-Intermediate/Task-2-GitHub-API/index.html" class="btn btn-demo">
+                <span>Launch Live Demo &rarr;</span>
+              </a>
+              <a href="https://github.com/MDSOBUJMADBOR/Codveda-Frontend-Internship/tree/main/Level-2-Intermediate/Task-2-GitHub-API" target="_blank" class="btn btn-code">Source Code</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- LEVEL 3 -->
+      <section class="level-block">
+        <div class="level-header">
+          <div>
+            <span class="level-tag">LEVEL 3 &bull; ADVANCED DOMAIN</span>
+            <h2 class="level-title">Performance Engineering &amp; Kinetic Motion</h2>
+          </div>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">2 Tasks Completed</span>
+        </div>
+
+        <div class="tasks-grid">
+          <!-- Task 2 -->
+          <article class="project-card">
+            <div class="project-top">
+              <span class="task-number">Task 2</span>
+              <h3 class="project-title">OptiCore — Web Performance Suite</h3>
+              <p class="project-desc">
+                Google Lighthouse 99/100 score architecture. Demonstrates WebP responsive pipelines, critical CSS inlining, render-blocking elimination, and Cache-First Service Worker.
+              </p>
+              <div class="tech-pill-list">
+                <span class="tech-pill">Lighthouse 99</span>
+                <span class="tech-pill">Service Worker Caching</span>
+                <span class="tech-pill">Critical CSS</span>
+                <span class="tech-pill">Performance API</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="./Level-3-Advanced/Task-2-Performance/index.html" class="btn btn-demo">
+                <span>Launch Live Benchmark &rarr;</span>
+              </a>
+              <a href="https://github.com/MDSOBUJMADBOR/Codveda-Frontend-Internship/blob/main/Level-3-Advanced/Task-2-Performance/AUDIT_REPORT.md" target="_blank" class="btn btn-code">Audit Report</a>
+            </div>
+          </article>
+
+          <!-- Task 3 -->
+          <article class="project-card">
+            <div class="project-top">
+              <span class="task-number">Task 3</span>
+              <h3 class="project-title">NovaPulse — Advanced GSAP 3 Animations</h3>
+              <p class="project-desc">
+                Kinetic motion showcase powered by GSAP 3 and ScrollTrigger. Features hardware-accelerated 60 FPS timelines, 3D perspective tilt cards with specular glare, and magnetic physics.
+              </p>
+              <div class="tech-pill-list">
+                <span class="tech-pill">GSAP 3</span>
+                <span class="tech-pill">ScrollTrigger</span>
+                <span class="tech-pill">3D Tilt &amp; Glare</span>
+                <span class="tech-pill">Magnetic Physics</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="./Level-3-Advanced/Task-3-Animations/index.html" class="btn btn-demo">
+                <span>Launch Live Demo &rarr;</span>
+              </a>
+              <a href="https://github.com/MDSOBUJMADBOR/Codveda-Frontend-Internship/tree/main/Level-3-Advanced/Task-3-Animations" target="_blank" class="btn btn-code">Source Code</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Codveda Internship Portfolio &bull; Engineered by <strong>Md. Sobuj Madbor</strong></p>
+      <p class="sub">Front End Development Intern &bull; Codveda Technologies (Oct 22 – Nov 22, 2026)</p>
+    </div>
+  </footer>
+</body>
+</html>
