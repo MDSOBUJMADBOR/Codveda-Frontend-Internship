@@ -3,6 +3,7 @@
 
 [![Internship](https://img.shields.io/badge/Codveda-Internship%202026-6366f1?style=for-the-badge&logo=code)](https://codveda.com/)
 [![Track](https://img.shields.io/badge/Domain-Front--End%20Development-06b6d4?style=for-the-badge)](https://codveda.com/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Netlify-00C7B7?style=for-the-badge&logo=netlify)](https://codveda-internship-sobuj.netlify.app)
 [![Status](https://img.shields.io/badge/Status-Completed%20(6%2F6%20Tasks)-10b981?style=for-the-badge)](https://codveda.com/)
 [![Author](https://img.shields.io/badge/Author-Md.%20Sobuj%20Madbor-f59e0b?style=for-the-badge)](https://linkedin.com)
 
